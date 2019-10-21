@@ -14,6 +14,8 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 # Define working directory.
 WORKDIR /usr/src/app
 
+USER WWW
+
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
