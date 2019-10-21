@@ -2,7 +2,7 @@
 set -e
 
 # Stop & remove container, if running
-container_name="clnginx"
+container_name="mynginx"
 if [ "$(docker ps -a | grep $container_name)" ]; then
     docker container stop "$container_name" >/dev/null
     docker container rm "$container_name" >/dev/null
