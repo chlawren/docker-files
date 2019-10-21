@@ -6,7 +6,7 @@ pipeline {
             agent {
               dockerfile {
               filename 'docker/alpine/Dockerfile'
-              label 'alpine:base'
+              label 'alpine-1'
               additionalBuildArgs  '-t applbase:alpine'
         }
       }
@@ -19,7 +19,7 @@ pipeline {
             agent {
               dockerfile {
               filename 'docker/nginx/Dockerfile'
-              label 'nginx:base'
+              label 'nginx-1'
               additionalBuildArgs  '-t nginx:1'
         }
       }
