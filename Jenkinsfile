@@ -1,13 +1,29 @@
 pipeline {
-       stage('Build Docker'){
+  agent none
 
-            sh 'docker build -t applbase:alpine -f docker/apline/Dockerfile .'
-       }
+  stages {
+    stage("buildbase") {
+      agent {
+        dockerfile {
+          filename "files/docker/alpine/Dockerfile"
+        }
+      }
 
-       stage('Deploy'){
+      steps {
+        sh "docker ps -a"
+      }
+    }
 
-         sh 'docker ps -a'
+    stage("nginx") {
+      agent {
+        dockerfile {
+          filename "files/docker/nginx/Dockerfile
+        }
+      }
 
-
-       }
+      steps {
+        sh "docker ps -a"
+      }
+    }
+  }
 }
