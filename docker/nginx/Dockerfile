@@ -22,4 +22,4 @@ EXPOSE 443
 
 # Command
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ && nginx -g 'daemon off;']
