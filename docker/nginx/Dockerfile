@@ -8,8 +8,6 @@ rm -rf /var/lib/apt/lists/* && \
 adduser -D -g 'www' www && \
 chown -R www:www /var/lib/nginx
  
-ADD ./nginx.conf /etc/nginx
-
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
