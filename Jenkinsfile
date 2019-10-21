@@ -5,7 +5,7 @@ pipeline {
     stage("buildbase") {
       agent {
         dockerfile {
-          filename "files/docker/alpine/Dockerfile"
+          filename "docker/alpine/Dockerfile"
         }
       }
 
@@ -17,7 +17,7 @@ pipeline {
     stage("nginx") {
       agent {
         dockerfile {
-          filename "files/docker/nginx/Dockerfile"
+          filename "docker/nginx/Dockerfile"
         }
       }
 
