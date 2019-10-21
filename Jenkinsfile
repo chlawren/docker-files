@@ -17,7 +17,7 @@ pipeline {
     stage("nginx") {
       agent {
         dockerfile {
-          filename "files/docker/nginx/Dockerfile
+          filename "files/docker/nginx/Dockerfile"
         }
       }
 
