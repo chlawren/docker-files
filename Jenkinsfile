@@ -2,10 +2,12 @@ pipeline {
   agent none
 
   stages {
-    stage("buildbase") {
-      agent {
-        dockerfile {
-          filename "docker/alpine/Dockerfile"
+        stage('base') {
+            agent {
+              dockerfile {
+              filename 'docker/alpine/Dockerfile'
+              label 'alpine:base'
+              additionalBuildArgs  '-t applbase:alpine'
         }
       }
 
@@ -13,11 +15,12 @@ pipeline {
         sh "docker ps -a"
       }
     }
-
-    stage("nginx") {
-      agent {
-        dockerfile {
-          filename "docker/nginx/Dockerfile"
+       stage('base') {
+            agent {
+              dockerfile {
+              filename 'docker/nginx/Dockerfile'
+              label 'nginx:base'
+              additionalBuildArgs  '-t nginx:1'
         }
       }
 
