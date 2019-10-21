@@ -9,7 +9,7 @@ pipeline {
       }
        stage('nginx') {
          steps {
-          sh "docker build -t nginx:${env.BUILD_ID} -f docker/nginx/Dockerfile ."
+          sh "docker build . -f docker/nginx/Dockerfile -t nginx:${env.BUILD_ID}"
           sh "docker/nginx/run-container.sh"
       }
     }
