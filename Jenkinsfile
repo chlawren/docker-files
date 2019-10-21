@@ -10,7 +10,7 @@ pipeline {
        stage('nginx') {
          steps {
           sh "cat ${WORKSPACE}/docker/nginx/Dockerfile |docker build -t nginx:${env.BUILD_ID} -f- ."
-          sh "docker/nginx/run-container.sh"
+          sh "docker/nginx/run-container.sh nginx:${env.BUILD_ID}"
       }
     }
   }
