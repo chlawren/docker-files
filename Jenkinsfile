@@ -15,7 +15,7 @@ pipeline {
         sh "docker ps -a"
       }
     }
-       stage('base') {
+       stage('nginx') {
             agent {
               dockerfile {
               filename 'docker/nginx/Dockerfile'
