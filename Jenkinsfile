@@ -4,7 +4,8 @@ pipeline {
   stages {
         stage('build') {
           steps {
-          sh "docker build -t alpdemo:base -f docker/alpine/Dockerfile ."
+ #         sh "docker build -t alpdemo:base -f docker/alpine/Dockerfile ."
+          sh "cat docker/alpine/Dockerfile | docker build -t alpdemo:base -f- ."
         }  
       }
        stage('nginx') {
