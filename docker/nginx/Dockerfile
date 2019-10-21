@@ -1,4 +1,4 @@
-FROM applbase:alpine 
+FROM applbase 
 
 # Install Nginx.
 RUN \
