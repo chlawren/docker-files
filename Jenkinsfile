@@ -4,12 +4,12 @@ pipeline {
   stages {
         stage('build') {
           steps {
-          sh "docker built -t applbase:apline -f docker/alpine/Dockerfile ."
+          sh "docker build -t applbase:apline -f docker/alpine/Dockerfile ."
         }  
       }
        stage('nginx') {
          steps {
-          sh "docker built -t nginx:${env.BUILD_ID} docker/nginx/run-container.sh"
+          sh "docker build -t nginx:${env.BUILD_ID} -f docker/nginx/Dockerfile"
           sh "docker/nginx/run-container.sh"
       }
     }

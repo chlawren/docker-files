@@ -2,7 +2,7 @@
 set -e
 
 # Stop & remove container, if running
-container_name="nginx:apline1"
+container_name="clnginx"
 if [ "$(docker ps -a | grep $container_name)" ]; then
     docker container stop "$container_name" >/dev/null
     docker container rm "$container_name" >/dev/null
