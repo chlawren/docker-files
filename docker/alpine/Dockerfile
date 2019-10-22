@@ -5,5 +5,3 @@ RUN apk - no-cache update \
   && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
-
-ENTRYPOINT ["/bin/sh"]

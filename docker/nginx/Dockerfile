@@ -11,6 +11,9 @@ chown -R www:www /var/lib/nginx
 COPY files/entrypoint.sh /root/entrypoint.sh 
 COPY files/nginx.conf /etc/nginx/nginx.conf
 
+chown www:www /root/entrypoint.sh
+chmod 755 /root/entrypoint.sh
+
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
@@ -24,5 +27,4 @@ EXPOSE 80
 EXPOSE 443
 
 # Command
-
-CMD [/root/entrypoint.sh]
+CMD ["nginx", "-g", "daemon off;"]
