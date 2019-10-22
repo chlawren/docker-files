@@ -5,12 +5,12 @@ pipeline {
   stages {
         stage('build') {
           steps {
-          sh "docker build -t alpdemo:base -f docker/alpine/Dockerfile ."
+          sh "docker build -t alpdemo:base -f /var/jenkins_home/files/docker/alpine/Dockerfile ."
         }  
       }
        stage('nginx') {
          steps {
-          sh "cat ${WORKSPACE}/docker/nginx/Dockerfile |docker build -t nginx:${env.BUILD_ID} -f- ."
+          sh "cat /var/jenkins_home/files/docker/nginx/Dockerfile |docker build -t nginx:${env.BUILD_ID} -f- ."
           sh "docker/nginx/run-container.sh nginx:${env.BUILD_ID}"
       }
     }

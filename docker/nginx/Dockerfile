@@ -8,8 +8,8 @@ rm -rf /var/lib/apt/lists/* && \
 adduser -D -g 'www' www && \
 chown -R www:www /var/lib/nginx
 
-COPY [ "/var/jenkins_home/files/entrypoint.sh", "/root/entrypoint.sh" ] 
-COPY [ "/var/jenkins_home/files/nginx.conf", "/etc/nginx/nginx.conf" ]
+COPY [ "/var/jenkins_home/files/docker/nginx/files/entrypoint.sh", "/root/entrypoint.sh" ] 
+COPY [ "/var/jenkins_home/files/docker/nginx/files/nginx.conf", "/etc/nginx/nginx.conf" ]
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
