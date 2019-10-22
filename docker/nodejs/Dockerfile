@@ -1,10 +1,10 @@
 FROM alpdemo:base AS builder
 
-WORKDIR /usr/src/app
-
 FROM node:9-alpine
 
 COPY . /usr/src/app
+
+WORKDIR /usr/src/app
 
 RUN apk --no-cache --virtual build-dependencies add \
     python \
