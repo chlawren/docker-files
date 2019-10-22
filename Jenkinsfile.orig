@@ -1,30 +1,23 @@
 pipeline {
-    agent none
-    stages {
-        stage('base') {
-            agent {
-              dockerfile {
-              filename 'Dockerfile'
-              dir 'alpine'
-              label 'alpine:base'
-              additionalBuildArgs  '-t applbase:alpine'
-        }
-            steps {
-                sh 'uname -a'
-            }
-        }
-        stage('nginx') {
-            agent {
-              dockerfile {
-              filename 'Dockerfile'
-              dir 'nginx'
-              label 'nginx:'
-              additionalBuildArgs  '-t nginx:0.1'
-        }
+  agent none
 
-            steps {
-                sh 'docker/nginx/run-container.sh'
-            }
+  stages {
+    stage("alpine-build") {
+      agent {
+        dockerfile {
+          filename "docker/alpine/Dockerfile"
         }
+      }
     }
+
+    stage("nginx-build") {
+      agent {
+        dockerfile {
+          filename "docker/nginx/Dockerfile"
+          args "-p 80:80 -p 443:443 -t ${env.BUILD_ID} --name mynginx"
+        }
+      }
+
+    }
+  }
 }
