@@ -10,7 +10,7 @@ fi
 
 docker container run \
     -d \
-    -p 8000:8000 \
+    -p 3000:3000 \
     -u node \
     --name "$container_name" \
     "$1" 
