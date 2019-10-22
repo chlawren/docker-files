@@ -12,6 +12,7 @@ docker container run \
     -d \
     -p 80:80 \
     -p 443:443 \
+    -u nginx \
     --name "$container_name" \
     "$1" 
 
