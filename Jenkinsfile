@@ -10,7 +10,7 @@ pipeline {
       }
        stage('nginx') {
          steps {
-          sh "cat /var/jenkins_home/files/docker/nginx/Dockerfile |docker build -t nginx:${env.BUILD_ID} -f- ."
+          sh "docker build -t nginx:${env.BUILD_ID} -f ./docker/nginx/Dockerfile ./docker/nginx"
           sh "docker/nginx/run-container.sh nginx:${env.BUILD_ID}"
       }
     }
