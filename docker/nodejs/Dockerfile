@@ -4,17 +4,17 @@ WORKDIR /usr/src/app
 
 FROM node:9-alpine
 
-# Install deps
-COPY ./package* ./
-RUN npm install && \
-    npm cache clean --force
+COPY . /usr/src/app
 
-COPY . .
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ \
+    && npm install \
+    && apk del build-dependencies
 
-# Expose ports (for orchestrators and dynamic reverse proxies)
 EXPOSE 3000
 
 USER node
 
-# Start the app
-CMD npm start
+CMD [ "npm", "start" ]
