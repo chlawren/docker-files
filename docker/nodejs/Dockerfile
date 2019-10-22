@@ -1,4 +1,4 @@
-FROM applbase:alpine
+FROM alpdemo:base
 
 ENV VERSION=v12.13.0 NPM_VERSION=6 YARN_VERSION=latest
 
