@@ -1,8 +1,8 @@
 FROM alpdemo:base AS builder
 
-FROM node:9-alpine
+FROM node:10-alpine
 
-COPY . /usr/src/app
+COPY package*.json ./
 
 WORKDIR /usr/src/app
 
@@ -13,8 +13,10 @@ RUN apk --no-cache --virtual build-dependencies add \
     && npm install \
     && apk del build-dependencies
 
+COPY . .
+
 EXPOSE 3000
 
 USER node
 
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]

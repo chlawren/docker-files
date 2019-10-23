@@ -1,24 +1,13 @@
 {
-  "name": "Docker-node",
+  "name": "docker_web_app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Node.js on Docker",
+  "author": "First Last <[email protected]>",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
-    "start": "node ./build/index.js",
-    "dev": "babel-node src/index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.1"
   }
 }
