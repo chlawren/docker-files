@@ -11,7 +11,6 @@ fi
 docker container run \
     -d \
     -p 3000:3000 \
-    -u node \
     --name "$container_name" \
     "$1" 
 
