@@ -2,9 +2,9 @@ FROM alpdemo:base AS builder
 
 FROM node:10-alpine
 
-COPY package*.json ./
-
 WORKDIR /usr/src/app
+
+COPY package*.json ./
 
 RUN apk --no-cache --virtual build-dependencies add \
     python \
