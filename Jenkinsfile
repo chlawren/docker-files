@@ -2,6 +2,12 @@ pipeline {
   agent any
 
   stages {
+        stage('checkout') {
+          steps {
+            git branch: 'master',
+                url: 'file:///var/jenkins_home/files'
+        }
+    }
         stage('build') {
           steps {
           sh "docker build -t alpdemo:base -f /var/jenkins_home/files/docker/alpine/Dockerfile ."
