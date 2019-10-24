@@ -8,3 +8,4 @@ WORKDIR /var/jenkins_home/files
 USER root
 RUN apt-get update
 RUN curl -sSL https://get.docker.com/ | sh
+COPY docker-run /var/jenkins_home/jobs
