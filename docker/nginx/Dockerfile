@@ -1,3 +1,7 @@
+FROM alpdemo:base
+
+WORKDIR /usr/src/app
+
 ENV NGINX_VERSION   1.16.1
 ENV NJS_VERSION     0.3.5
 ENV PKG_RELEASE     1
